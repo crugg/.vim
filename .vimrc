@@ -3,11 +3,20 @@ if ! has("gui_running")
 endif
 set background=dark
 colors peaksea
+syntax on
 
+set ruler
 set mouse=a
 set hlsearch
 set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+let g:black_linelength = 99
+let g:black_skip_string_normalization = ""
+
+set backspace=indent,eol,start
+
+iab pdb import pdb; pdb.set_trace()
 
 " CTRL-X, CTRL-C, CTRL-V for Cut, Copy, Paste
 vnoremap <C-X> "+x
@@ -43,9 +52,9 @@ set ve=onemore
 map <Tab> "+=l
 " the following isn't quite working properly just yet
 " imap <Tab> <Esc>:norm mz<CR>=l:norm `z<CR>li
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
-set softtabstop=2
+set softtabstop=4
 if has("autocmd")
   filetype plugin indent on
   filetype plugin on
